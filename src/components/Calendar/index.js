@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { rangeShape } from '../DayCell';
@@ -99,9 +100,10 @@ class Calendar extends PureComponent {
   updateShownDate = (props = this.props) => {
     const newProps = props.scroll.enabled
       ? {
-          ...props,
-          months: this.list.getVisibleRange().length,
-        }
+        // eslint-disable-next-line prettier/prettier
+        ...props,
+        months: this.list.getVisibleRange().length,
+      }
       : props;
     const newFocus = calcFocusDate(this.state.focusedDate, newProps);
     this.focusToDate(newFocus, newProps);
@@ -493,7 +495,7 @@ class Calendar extends PureComponent {
               isVertical ? this.styles.monthsVertical : this.styles.monthsHorizontal
             )}>
             {new Array(this.props.months).fill(null).map((_, i) => {
-              let monthStep = addMonths(this.state.focusedDate, i);;
+              let monthStep = addMonths(this.state.focusedDate, i);
               if (this.props.calendarFocus === 'backwards') {
                 monthStep = subMonths(this.state.focusedDate, this.props.months - 1 - i);
               }
@@ -530,7 +532,8 @@ Calendar.defaultProps = {
   showMonthArrow: true,
   showMonthAndYearPickers: true,
   disabledDates: [],
-  disabledDay: () => {},
+  // eslint-disable-next-line prettier/prettier
+  disabledDay: () => { },
   classNames: {},
   locale: defaultLocale,
   ranges: [],
